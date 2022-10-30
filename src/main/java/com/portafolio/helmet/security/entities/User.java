@@ -49,40 +49,6 @@ public class User {
     @Column(name = "rut", length = 15)
     private String rut;
 
-    @Null
-    @Column(name = "business_name")
-    private String businessName;
-
-    @Null
-    @Column(name = "country")
-    private String country;
-
-    @Null
-    @Column(name = "city")
-    private String city;
-
-    @Null
-    @Column(name = "commune")
-    private String commune;
-
-    @Null
-    @Column(name = "address")
-    private String address;
-
-
-    @Null
-    @Column(name = "date_startcontract")
-    private Date dateStartContract;
-
-    @Null
-    @Column(name = "date_endcontract")
-    private Date dateEndContract;
-
-    @Null
-    @Column(name = "birth_date")
-    private Date birthDate;
-
-
     public User() {
     }
 
