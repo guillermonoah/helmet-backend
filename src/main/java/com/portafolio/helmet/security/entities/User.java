@@ -1,4 +1,4 @@
-package com.portafolio.helmet.security.entities;
+/* package com.portafolio.helmet.security.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -60,9 +60,10 @@ public class User {
 
     public void setRoles(Set<com.portafolio.helmet.security.entities.Role> roles) {
     }
-}
-/*
+}*/
+
 package com.portafolio.helmet.security.entities;
+
 
 import lombok.Getter;
 import lombok.Setter;
@@ -77,10 +78,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "usuarioL")
+@Table(name = "users")
 @Getter
 @Setter
-public class UsuarioL {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -88,14 +89,14 @@ public class UsuarioL {
     @NotNull
     @NaturalId
     @Column(unique = true)
-    private String usuario;
+    private String userName;
 
     @NotNull
-    @Column(name = "idPerfil")
-    private Long idPerfil;
+    @Column(name = "idProfile")
+    private Long idProfile;
 
     @NotNull
-    private String contraseña;
+    private String password;
 
     @NotNull
     @ManyToMany(fetch = FetchType.EAGER)
@@ -103,9 +104,9 @@ public class UsuarioL {
             inverseJoinColumns=@JoinColumn(name="role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    @Column(name = "nombre")
+    @Column(name = "name")
     @NotNull
-    private String nombre;
+    private String name;
 
     @Null
     @Column(name = "rut", length = 15)
@@ -117,16 +118,17 @@ public class UsuarioL {
     private String email;
 
     @Null
-    @Column(name = "telefono")
-    private String telefono;
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
 
-    public UsuarioL(){}
+    public User(){}
 
-    public UsuarioL(@NotNull String usuario, @NotNull String email, @NotNull String contraseña)
-    {
-        this.usuario = usuario;
+    public User (@NotNull String userName, @NotNull String email, @NotNull String password) {
+        this.userName = userName;
         this.email = email;
-        this.contraseña = contraseña;
+        this.password = password;
+    }
+
+    public void setRoles(Set<com.portafolio.helmet.security.entities.Role> roles) {
     }
 }
- */
