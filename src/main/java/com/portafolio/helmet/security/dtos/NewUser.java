@@ -18,21 +18,14 @@ import lombok.Setter;
 public class NewUser {
 
     @NotBlank
-    private Long idProfile;
-    @NotBlank
     private String userName;
+    @Email
+    private String email;
     @NotBlank
     private String password;
     @NotBlank
     private String name;
     @NotBlank
-    private String rut;
-    @NotBlank
-    private String email;
-    @NotBlank
-    private String phoneNumber;
-
+    private String lastName;
     private Set<String> roles = new HashSet<>();
-
-
 }
