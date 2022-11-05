@@ -73,7 +73,6 @@ public class AuthController {
         user.setEmail(newUser.getEmail());
         user.setPassword(passwordEncoder.encode(newUser.getPassword()));
         user.setName(newUser.getName());
-        user.setLastName(newUser.getLastName());
         Set<Role> roles = new HashSet<>();
         if (newUser.getRoles().contains("ROLE_CUSTOMER"))
             roles.add(roleService.getByRoleName(RoleList.ROLE_CUSTOMER).get());
@@ -109,7 +108,6 @@ public class AuthController {
         user.setEmail(newUser.getEmail());
         user.setPassword(passwordEncoder.encode(newUser.getPassword()));
         user.setName(newUser.getName());
-        user.setLastName("hola hola");
 
         Set<Role> roles = new HashSet<>();
         if (newUser.getRoles().contains("ROLE_ADMIN"))

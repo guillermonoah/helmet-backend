@@ -31,55 +31,48 @@ public class User {
 //    @SequenceGenerator(name = "userid_generator", initialValue = 1, allocationSize = 1, sequenceName = "userid_seq")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Id
+    @NotNull
+    private Long idProfile;
+    @Id
+    @Null
+    private Long idBusiness;
+
     @NotNull
     @NaturalId
     @Column(unique = true)
     private String userName;
-    @Column(name = "name")
-    @NotNull
-    private String name;
-    @Column(name = "last_name")
-    @NotNull
-    @NotBlank
-    private String lastName;
-    @NotNull
-    @Email
-    @Column(length = 100)
-    private String email;
     @NotNull
     private String password;
+
     @NotNull
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="user_role_relate", joinColumns = @JoinColumn(name="user_id"),
             inverseJoinColumns=@JoinColumn(name="role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    @Column(name = "name")
+    @NotNull
+    private String name;
     @Null
     @Column(name = "rut", length = 15)
     private String rut;
+    @NotNull
+    @Email
+    @Column(length = 100)
+    private String email;
 
-    @Null
-    @Column(name = "business_name")
-    private String businessName;
-
-    @Null
-    @Column(name = "country")
-    private String country;
-
-    @Null
-    @Column(name = "city")
-    private String city;
-
-    @Null
-    @Column(name = "commune")
-    private String commune;
-
-    @Null
-    @Column(name = "address")
-    private String address;
-    @Null
-    @Column(name = "birth_date")
-    private Date birthDate;
+/*
+    private Long id;
+    private Long idPerfil;
+    private Long idEmpresa;
+    private String usuario;
+    private String contraseña;
+    private String nombre;
+    private String rut;
+    private String email;
+    private String telefono;
+    */
 
 
     public User() {
