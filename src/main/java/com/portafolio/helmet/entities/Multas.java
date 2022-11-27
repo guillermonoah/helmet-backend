@@ -15,7 +15,7 @@ public class Multas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date fecha;
-    private String razon;
+    private String motivo;
     private Long valor;
     private Date fechaPago;
     private Long idEstPag;
