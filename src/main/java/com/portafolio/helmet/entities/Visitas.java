@@ -15,13 +15,10 @@ public class Visitas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idEmpresa;
-    private Long idClientes;
-    private Long idProfesional;
-    private Long idEstado;
+    private Long idCliente;
+    private Long idUsuario;
     private Long idEstVis;
-    private Long idCapacitacion;
     private Date fechaVisita;
     private String horaVisita;
-    private String nAsistentes;
+    private Date fechaSolicitud;
 }

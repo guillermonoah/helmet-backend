@@ -6,16 +6,12 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "capacitaciones")
+@Table(name = "estadoAsesoria")
 @Getter
 @Setter
-public class Capacitaciones {
+public class EstadoAsesoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idUsuario;
-    private Long idCliente;
-    private String titulo;
-    private String materialAdd;
-    private Long nAsistentes;
+    private String nombre;
 }

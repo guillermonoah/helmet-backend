@@ -14,7 +14,8 @@ public class Accidente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idEmpresa;
+    private Long idCliente;
+    private Long idGravedad;
     private Date fecha;
     private String nombreTrabajador;
     private String rutT;

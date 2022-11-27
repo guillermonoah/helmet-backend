@@ -10,20 +10,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class MainUser implements UserDetails {
 
-    private Long idProfile;
     private String userName;
     private String email;
     private String password;
     private String name;
-
     private String rut;
     private Collection<? extends GrantedAuthority> authorities;
 
 
-    public MainUser(Long idProfile,String userName, String email, String password,
+    public MainUser(String userName, String email, String password,
                     String name,String rut,
                     Collection<? extends GrantedAuthority> authorities) {
-        this.idProfile = idProfile;
+
         this.userName = userName;
         this.email = email;
         this.password = password;
@@ -34,7 +32,7 @@ public class MainUser implements UserDetails {
 
     public static MainUser build(User user){
         List<GrantedAuthority> authorities = user.getRoles().stream().map(role-> new SimpleGrantedAuthority(role.getRoleName().name())).collect(Collectors.toList());
-        return new MainUser(user.getIdProfile(), user.getUserName(), user.getEmail(), user.getPassword(), user.getName(), user.getRut(), authorities);
+        return new MainUser( user.getUserName(), user.getEmail(), user.getPassword(), user.getName(), user.getRut(), authorities);
     }
 
     @Override
@@ -72,9 +70,6 @@ public class MainUser implements UserDetails {
         return true;
     }
 
-    public Long getIdProfile() {
-        return idProfile;
-    }
     public String getEmail() {
         return email;
     }

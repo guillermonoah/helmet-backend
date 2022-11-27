@@ -13,9 +13,13 @@ public class Clientes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idEmpresa;
-    private String nombre;
-    private String rut;
+    private Long idProfesional;
+    private Long idEstServicio;
+    private Long idRubro;
+    private Long diaPago;
+    private String nombreEmpresa;
+    private String rutEmpresa;
     private String email;
-    private String telefono;
+    private String nombreContacto;
+    private String rutContacto;
 }

@@ -27,17 +27,8 @@ public class User {
 
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userid_generator")
-//    @SequenceGenerator(name = "userid_generator", initialValue = 1, allocationSize = 1, sequenceName = "userid_seq")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Id
-    @NotNull
-    private Long idProfile;
-    @Id
-    @Null
-    private Long idBusiness;
-
     @NotNull
     @NaturalId
     @Column(unique = true)
@@ -54,26 +45,12 @@ public class User {
     @Column(name = "name")
     @NotNull
     private String name;
-    @Null
     @Column(name = "rut", length = 15)
     private String rut;
     @NotNull
     @Email
     @Column(length = 100)
     private String email;
-
-/*
-    private Long id;
-    private Long idPerfil;
-    private Long idEmpresa;
-    private String usuario;
-    private String contraseña;
-    private String nombre;
-    private String rut;
-    private String email;
-    private String telefono;
-    */
-
 
     public User() {
     }

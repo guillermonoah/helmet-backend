@@ -18,8 +18,6 @@ import lombok.Setter;
 public class NewUser {
 
     @NotBlank
-    private String idProfile;
-    @NotBlank
     private String userName;
     @Email
     private String email;
@@ -29,5 +27,6 @@ public class NewUser {
     private String name;
     @NotBlank
     private String rut;
+
     private Set<String> roles = new HashSet<>();
 }

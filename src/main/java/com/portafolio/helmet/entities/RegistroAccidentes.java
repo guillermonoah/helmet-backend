@@ -13,9 +13,8 @@ public class RegistroAccidentes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idEmpresa;
+    private Long idCliente;
     private Long idEstado;
-    private Long idGravedad;
     private Long idAccidente;
-    private Long idProfesional;
+    private Long idUsuario;
 }

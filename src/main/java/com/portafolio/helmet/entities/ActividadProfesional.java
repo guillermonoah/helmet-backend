@@ -13,8 +13,6 @@ public class ActividadProfesional {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idProfesional;
+    private Long idUsuario;
     private Long idEstAct;
-    private String nombre;
-    private String descripcion;
 }

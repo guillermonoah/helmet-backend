@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "mejoras")
@@ -13,9 +14,10 @@ public class Mejoras {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idProfesional;
-    private Long idEmpresa;
+    private Long idUsuario;
+    private Long idCliente;
     private String nombre;
-    private String sugerencias;
+    private Date fecha;
+    private String aprobadoPor;
 
 }
