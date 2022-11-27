@@ -2,9 +2,7 @@ package com.portafolio.helmet.services;
 
 import com.portafolio.helmet.daos.EstadoServicioDao;
 import com.portafolio.helmet.entities.EstadoServicio;
-import com.portafolio.helmet.entities.Rubro;
 import com.portafolio.helmet.repositories.EstadoServicioRepository;
-import com.portafolio.helmet.repositories.RubroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
