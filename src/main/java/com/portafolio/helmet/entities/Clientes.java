@@ -13,7 +13,7 @@ public class Clientes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idProfesional;
+    private Long idUsuario;
     private Long idEstServicio;
     private Long idRubro;
     private Long diaPago;
