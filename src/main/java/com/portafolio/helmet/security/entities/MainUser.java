@@ -15,11 +15,14 @@ public class MainUser implements UserDetails {
     private String password;
     private String name;
     private String rut;
+    private Long idCliente;
+
+    private String nombreDoc;
     private Collection<? extends GrantedAuthority> authorities;
 
 
     public MainUser(String userName, String email, String password,
-                    String name,String rut,
+                    String name,String rut,Long idCliente,String nombreDoc,
                     Collection<? extends GrantedAuthority> authorities) {
 
         this.userName = userName;
@@ -27,12 +30,14 @@ public class MainUser implements UserDetails {
         this.password = password;
         this.name = name;
         this.rut = rut;
+        this.idCliente = idCliente;
+        this.nombreDoc = nombreDoc;
         this.authorities = authorities;
     }
 
     public static MainUser build(User user){
         List<GrantedAuthority> authorities = user.getRoles().stream().map(role-> new SimpleGrantedAuthority(role.getRoleName().name())).collect(Collectors.toList());
-        return new MainUser( user.getUserName(), user.getEmail(), user.getPassword(), user.getName(), user.getRut(), authorities);
+        return new MainUser( user.getUserName(), user.getEmail(), user.getPassword(), user.getName(), user.getRut(), user.getIdCliente(), user.getNombreDoc(), authorities);
     }
 
     @Override
@@ -78,6 +83,10 @@ public class MainUser implements UserDetails {
     }
     public String getRut() {
         return rut;
+    }
+    public String getNombreDoc() { return nombreDoc; }
+    public Long getIdCliente() {
+        return idCliente;
     }
 
 

@@ -28,5 +28,8 @@ public class NewUser {
     @NotBlank
     private String rut;
 
+    private Long idCliente;
+    private String nombreDoc;
+
     private Set<String> roles = new HashSet<>();
 }

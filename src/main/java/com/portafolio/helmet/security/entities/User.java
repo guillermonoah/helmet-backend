@@ -45,12 +45,19 @@ public class User {
     @Column(name = "name")
     @NotNull
     private String name;
+
     @Column(name = "rut", length = 15)
     private String rut;
     @NotNull
     @Email
     @Column(length = 100)
     private String email;
+
+    @Column(name = "idCliente")
+    private Long idCliente;
+
+    @Column(name = "nombreDoc")
+    private String nombreDoc;
 
     public User() {
     }

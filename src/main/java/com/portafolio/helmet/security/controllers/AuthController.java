@@ -74,6 +74,8 @@ public class AuthController {
         user.setPassword(passwordEncoder.encode(newUser.getPassword()));
         user.setName(newUser.getName());
         user.setRut(newUser.getRut());
+        user.setIdCliente(newUser.getIdCliente());
+        user.setNombreDoc(newUser.getNombreDoc());
         Set<Role> roles = new HashSet<>();
         if (newUser.getRoles().contains("ROLE_CUSTOMER"))
             roles.add(roleService.getByRoleName(RoleList.ROLE_CUSTOMER).get());
@@ -110,6 +112,8 @@ public class AuthController {
         user.setPassword(passwordEncoder.encode(newUser.getPassword()));
         user.setName(newUser.getName());
         user.setRut(newUser.getRut());
+        user.setNombreDoc(newUser.getNombreDoc());
+        user.setIdCliente(newUser.getIdCliente());
 
         Set<Role> roles = new HashSet<>();
         if (newUser.getRoles().contains("ROLE_ADMIN"))
