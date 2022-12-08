@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/estadoservicio")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT})
 public class EstadoServicioController {
     @Autowired
     private EstadoServicioDao estadoServicioDao ;

@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/registrollamadas")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT})
 public class RegistroLlamadasController {
     @Autowired
     private RegistroLlamadasDao registroLlamadasDao ;

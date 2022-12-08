@@ -11,10 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/registroreporte")
-/*
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT})
-
- */
 public class RegistroReporteController {
     @Autowired
     private RegistroReporteDao registroReporteDao ;

@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/capacitaciones")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT})
 public class CapacitacionesController {
     @Autowired
     private CapacitacionesDao capacitacionesDao;
