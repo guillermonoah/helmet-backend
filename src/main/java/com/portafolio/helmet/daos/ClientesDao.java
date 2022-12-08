@@ -9,4 +9,5 @@ public interface ClientesDao {
     List<Clientes> obtenerClientes();
 
     Clientes guardarClientes(Clientes clientes);
+    boolean eliminarPorId(Long id);
 }

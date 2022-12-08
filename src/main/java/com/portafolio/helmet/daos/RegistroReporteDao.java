@@ -7,4 +7,6 @@ import java.util.List;
 public interface RegistroReporteDao {
     List<RegistroReporte> obtenerRegistroReporte();
     RegistroReporte guardarRegistroReporte(RegistroReporte registroReporte);
+
+    boolean eliminarPorId(Long id);
 }

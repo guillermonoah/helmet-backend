@@ -21,4 +21,13 @@ public class RegistroReporteService implements RegistroReporteDao {
     public RegistroReporte guardarRegistroReporte(RegistroReporte registroReporte){
         return registroReporteRepository.save(registroReporte);
     }
+
+    public boolean eliminarPorId(Long id){
+        try{
+            registroReporteRepository.deleteById(id);
+            return true;
+        }catch (Exception err){
+            return false;
+        }
+    }
 }

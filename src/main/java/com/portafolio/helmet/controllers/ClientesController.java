@@ -17,11 +17,22 @@ public class ClientesController {
 
     @GetMapping
     public List<Clientes> obtenerClientes(){
+
         return clientesDao.obtenerClientes();
     }
 
     @PostMapping
     public Clientes guardarClientes(@RequestBody Clientes clientes){
+
         return clientesDao.guardarClientes(clientes);
+    }
+    @DeleteMapping(path = "/{id}")
+    public String eliminarPorId(@PathVariable("id") Long id){
+        boolean ok = this.clientesDao.eliminarPorId(id);
+        if (ok){
+            return "Se elimino el regitro con id: "+ id;
+        }else{
+            return "No se pudo eliminar el regitro con id: "+ id;
+        }
     }
 }

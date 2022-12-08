@@ -16,10 +16,19 @@ public class ClientesService implements ClientesDao {
 
     @Override
     public List<Clientes> obtenerClientes(){
+
         return (List<Clientes>) clientesRepository.findAll();
     }
     @Override
     public Clientes guardarClientes(Clientes clientes){
         return clientesRepository.save(clientes);
+    }
+    public boolean eliminarPorId(Long id){
+        try{
+            clientesRepository.deleteById(id);
+            return true;
+        }catch (Exception err){
+            return false;
+        }
     }
 }

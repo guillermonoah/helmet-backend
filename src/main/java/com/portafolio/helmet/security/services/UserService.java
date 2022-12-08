@@ -46,4 +46,12 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public boolean eliminarPorId(Long id){
+        try{
+            userRepository.deleteById(id);
+            return true;
+        }catch (Exception err){
+            return false;
+        }
+    }
 }
