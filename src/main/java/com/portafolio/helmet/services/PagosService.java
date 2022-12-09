@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PagosService implements PagosDao {
@@ -16,7 +17,14 @@ public class PagosService implements PagosDao {
 
     @Override
     public List<Pagos> obtenerPagos(){return (List<Pagos>) pagosRepository.findAll();}
-
+    @Override
+    public Optional<Pagos> obtenerPagosPorId(Long idPagos) {
+        Optional<Pagos> pg = pagosRepository.findById(idPagos);
+        if(!pg.isPresent()){
+            return null;
+        }
+        return pg;
+    }
     @Override
     public Pagos guardarPagos(Pagos pagos){ return pagosRepository.save(pagos);}
 }

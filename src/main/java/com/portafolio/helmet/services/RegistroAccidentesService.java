@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RegistroAccidentesService implements RegistroAccidentesDao {
@@ -20,7 +21,14 @@ public class RegistroAccidentesService implements RegistroAccidentesDao {
     public List<RegistroAccidentes> obtenerRegistroAccidentes(){
         return (List<RegistroAccidentes>) registroAccidentesRepository.findAll();
     }
-
+    @Override
+    public Optional<RegistroAccidentes> obtenerRegistroAccidentesPorId(Long idRegistroAccidentes) {
+        Optional<RegistroAccidentes> ra = registroAccidentesRepository.findById(idRegistroAccidentes);
+        if(!ra.isPresent()){
+            return null;
+        }
+        return ra;
+    }
     @Override
     public RegistroAccidentes guardarRegistroAccidentes(RegistroAccidentes registroAccidentes){
         return registroAccidentesRepository.save(registroAccidentes);

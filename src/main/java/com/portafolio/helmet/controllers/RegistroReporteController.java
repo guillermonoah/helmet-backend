@@ -4,6 +4,7 @@ import com.portafolio.helmet.daos.RegistroReporteDao;
 import com.portafolio.helmet.entities.RegistroReporte;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,10 @@ public class RegistroReporteController {
     @GetMapping
     public List<RegistroReporte> obtenerRegistroReporte(){
         return registroReporteDao.obtenerRegistroReporte();
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<?> obtenerRegistroReporte(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(registroReporteDao.obtenerRegistroReportePorId(id));
     }
     @PostMapping
     public RegistroReporte guardarRegistroReporte(@RequestBody RegistroReporte registroReporte){

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EstVisService implements EstVisDao {
@@ -16,7 +17,14 @@ public class EstVisService implements EstVisDao {
 
     @Override
     public List<EstVis> obtenerEstVis(){return (List<EstVis>) estVisRepository.findAll();}
-
+    @Override
+    public Optional<EstVis> obtenerEstVisPorId(Long idEstVis) {
+        Optional<EstVis> ev = estVisRepository.findById(idEstVis);
+        if(!ev.isPresent()){
+            return null;
+        }
+        return ev;
+    }
     @Override
     public EstVis guardarEstVis(EstVis estVis){ return estVisRepository.save(estVis);}
 }

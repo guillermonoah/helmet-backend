@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientesService implements ClientesDao {
@@ -18,6 +19,14 @@ public class ClientesService implements ClientesDao {
     public List<Clientes> obtenerClientes(){
 
         return (List<Clientes>) clientesRepository.findAll();
+    }
+    @Override
+    public Optional<Clientes> obtenerClientesPorId(Long idClientes) {
+        Optional<Clientes> cli = clientesRepository.findById(idClientes);
+        if(!cli.isPresent()){
+            return null;
+        }
+        return cli;
     }
     @Override
     public Clientes guardarClientes(Clientes clientes){

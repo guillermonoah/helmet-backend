@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MultasService implements MultasDao {
@@ -15,6 +16,14 @@ public class MultasService implements MultasDao {
     @Override
     public List<Multas> obtenerMultas(){
         return (List<Multas>) multasRepository.findAll();
+    }
+    @Override
+    public Optional<Multas> obtenerMultasPorId(Long idMultas) {
+        Optional<Multas> ml = multasRepository.findById(idMultas);
+        if(!ml.isPresent()){
+            return null;
+        }
+        return ml;
     }
     @Override
     public Multas guardarMultas(Multas multas){
