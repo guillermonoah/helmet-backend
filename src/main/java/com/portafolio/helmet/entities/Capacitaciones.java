@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "capacitaciones")
@@ -18,4 +19,6 @@ public class Capacitaciones {
     private String titulo;
     private String materialAdd;
     private Long nAsistentes;
+    private String lugar;
+    private Date fecha;
 }

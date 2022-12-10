@@ -2,6 +2,7 @@ package com.portafolio.helmet.security.jwt;
 
 import java.util.Date;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,7 +30,7 @@ public class JwtProvider {
     @Value("${jwt.expiration}")
     private int expiration;
 
-    public String generateToken(Authentication authentication){
+    public String generateToken(@NotNull Authentication authentication){
         UserDetails mainUser = (UserDetails) authentication.getPrincipal();
 
         logger.error(mainUser.getUsername());

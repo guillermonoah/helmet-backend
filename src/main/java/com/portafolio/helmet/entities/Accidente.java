@@ -16,6 +16,7 @@ public class Accidente {
     private Long id;
     private Long idCliente;
     private Long idGravedad;
+    private Long idEstadoA;
     private Date fecha;
     private String nombreTrabajador;
     private String rutT;

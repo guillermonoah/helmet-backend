@@ -16,6 +16,7 @@ public class Clientes {
     private Long idUsuario;
     private Long idEstServicio;
     private Long idRubro;
+    private Long idEstPago;
     private Long diaPago;
     private String nombreEmpresa;
     private String rutEmpresa;
