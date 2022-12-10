@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RegistroLlamadasService implements RegistroLlamadasDao {
@@ -16,6 +17,14 @@ public class RegistroLlamadasService implements RegistroLlamadasDao {
     @Override
     public List<RegistroLlamadas> obtenerRegistroLlamadas(){
         return (List<RegistroLlamadas>) registroLlamadasRepository.findAll();
+    }
+    @Override
+    public Optional<RegistroLlamadas> obtenerRegistroLlamadasPorId(Long idRegistroLlamadas) {
+        Optional<RegistroLlamadas> rll = registroLlamadasRepository.findById(idRegistroLlamadas);
+        if(!rll.isPresent()){
+            return null;
+        }
+        return rll;
     }
     @Override
     public RegistroLlamadas guardarRegistroLlamadas(RegistroLlamadas registroLlamadas){

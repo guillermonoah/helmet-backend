@@ -9,8 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/checklist")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT})
 public class CheckListController {
-
     @Autowired
     private CheckListDao checkListDao;
 

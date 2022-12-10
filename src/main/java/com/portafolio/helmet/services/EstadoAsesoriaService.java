@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EstadoAsesoriaService implements EstadoAsesoriaDao {
@@ -17,7 +18,14 @@ public class EstadoAsesoriaService implements EstadoAsesoriaDao {
     public List<EstadoAsesoria> obtenerEstadoAsesoria(){
         return (List<EstadoAsesoria>) estadoAsesoriaRepository.findAll();
     }
-
+    @Override
+    public Optional<EstadoAsesoria> obtenerEstadoAsesoriaPorId(Long idEstadoAsesoria) {
+        Optional<EstadoAsesoria> eas = estadoAsesoriaRepository.findById(idEstadoAsesoria);
+        if(!eas.isPresent()){
+            return null;
+        }
+        return eas;
+    }
     @Override
     public EstadoAsesoria guardarEstadoAsesoria(EstadoAsesoria estadoAsesoria){
         return estadoAsesoriaRepository.save(estadoAsesoria);

@@ -18,4 +18,14 @@ public class UserController {
     public ResponseEntity<?> getUserByUsername(@PathVariable String userName){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(userService.getByUserName(userName));
     }
+
+    @DeleteMapping(path = "/{id}")
+    public String eliminarPorId(@PathVariable("id") Long id){
+        boolean ok = this.userService.eliminarPorId(id);
+        if (ok){
+            return "Se elimino el regitro con id: "+ id;
+        }else{
+            return "No se pudo eliminar el regitro con id: "+ id;
+        }
+    }
 }

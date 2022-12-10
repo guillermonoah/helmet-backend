@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RegistroInformeService implements RegistroInformeDao {
@@ -15,6 +16,14 @@ public class RegistroInformeService implements RegistroInformeDao {
     @Override
     public List<RegistroInforme> obtenerRegistroInforme(){
         return (List<RegistroInforme>) registroInformeRepository.findAll();
+    }
+    @Override
+    public Optional<RegistroInforme> obtenerRegistroInformePorId(Long idRegistroInforme) {
+        Optional<RegistroInforme> ri = registroInformeRepository.findById(idRegistroInforme);
+        if(!ri.isPresent()){
+            return null;
+        }
+        return ri;
     }
     @Override
     public RegistroInforme guardarRegistroInforme(RegistroInforme registroInforme){
